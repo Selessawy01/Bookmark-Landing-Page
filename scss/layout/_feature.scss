@@ -1,0 +1,103 @@
+@use "../abstract/variables" as v;
+@use "../abstract/mixins" as m;
+
+.feature{
+   @include m.flex(column,center,center);
+    gap : v.$spacing-400;
+}
+
+.feature__header{
+    text-align : center;
+    width      : 100%;
+    max-width  : 33.75rem;
+    h2{
+        padding-block-end : v.$spacing-200;
+    }
+}
+
+.feature__tabs{
+    
+    @include m.flex(column,center,center);
+    width      : 100%;
+    border-top : 0.125rem solid v.$border-light;
+    font-size  : 1rem;
+    line-height: 110%;
+    letter-spacing : 0.5px;
+
+    @media(min-width:48rem){
+       @include m.flex(row);
+        border-top : none;
+    }
+}
+
+.feature-tab-btn:hover{
+     color : v.$secondary-text-color;
+}
+.feature__tab-panel{
+    @include m.flex(column,center,center);
+    gap  : clamp(v.$spacing-400,10vw,v.$spacing-900);
+
+    @media(min-width:64rem){
+        display               : grid;
+        grid-template-columns : 1fr 1fr;
+    }
+}
+
+.feature__image{
+    @include m.flex(row,center,center);
+    position      : relative;
+    z-index       : 1;
+    padding-block : v.$spacing-500;
+
+}
+
+.feature__image img {
+    width     : 100%;
+    max-width : 100%;
+    height    : auto;
+    display   : block;
+}
+
+
+.feature__image::before{
+    content  : "";
+    position : absolute;
+    left     : -50%;
+    bottom   : 0;
+    width    : 135%;
+    height   : 60%;
+    
+    background-color : v.$color-blue-600;
+    border-radius    : 0 100px 100px 0;
+    z-index          : -1;
+}
+.feature__tab-content{
+    @include m.flex(column,center,center);
+    max-width : 28.125rem;
+    gap       : clamp(v.$spacing-200,3.5vw,v.$spacing-300);
+    
+    
+    h3{
+       line-height : 1.35;
+       width       : 60%;
+    }
+    
+    p{
+       line-height : 1.5;
+       line-height : 165%;
+       @media(min-width:64rem){
+        text-align: left;
+       }
+    }
+
+    @media (min-width:64rem){
+        align-items :flex-start;
+        
+    }
+}
+
+.hidden{
+    display:none;
+}
+
+

@@ -1,0 +1,30 @@
+@use "../abstract/variables" as v;
+
+*, *::after, *::before {
+    margin    : 0;
+    padding   : 0;
+    box-sizing: border-box;
+}
+
+img {   
+    display   : block;
+    max-width : 100%;  
+    height    : auto;
+}
+
+button,
+input,
+textarea,
+select {
+    font  : inherit;
+}
+
+html,body {
+   font-family : v.$ff-rubik;
+   overflow-x  : hidden;
+}
+html.menu-open,
+body.menu-open {
+    overflow : hidden;
+    height   : 100vh;
+}

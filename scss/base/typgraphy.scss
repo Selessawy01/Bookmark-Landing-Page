@@ -1,0 +1,45 @@
+@use "../abstract/variables" as v;
+body{
+    font-family  : 'Rubik',sans-serif;
+    font-size    : v.$fs-200;
+    line-height  : 1.5;
+    
+}
+
+h1,
+h2,
+h3 {
+    color       : v.$secondary-text-color;
+    font-weight : v.$fw-medium;
+    text-align  : center;
+}
+
+h1 {
+    font-size : clamp(v.$fs-600,5vw,v.$fs-800);
+
+    @media(min-width:64rem){
+      text-align : left;
+    }
+}
+h2 {
+    font-size  : clamp(v.$fs-600,5vw,v.$fs-700);
+}
+h3{
+    font-size  : v.$fs-500;
+    @media(min-width:48rem){
+
+        font-size : v.$fs-400;
+    }
+}
+
+p{
+    color       : v.$primary-text-color;
+    font-size   : clamp(v.$fs-100,3vw,v.$fs-300);
+    line-height : 165%;
+    text-align  : center;
+    
+}
+
+.uppercase {
+    text-transform : uppercase;
+}

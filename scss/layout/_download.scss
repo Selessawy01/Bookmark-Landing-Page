@@ -1,0 +1,36 @@
+@use "../abstract/variables" as v;
+@use "../abstract/mixins" as m;
+
+.download{
+    @include m.flex(column,center,center);
+    gap     :   clamp(v.$spacing-500,9vw,v.$spacing-800);
+    width   :   100%;
+    @media(min-width:64rem){
+        gap :   v.$spacing-600;
+    }
+}
+
+.download__content{
+    @include m.flex(column,center,center);
+    gap     :   v.$spacing-200;
+    width   :   100%;
+    @media(min-width:48rem){
+        max-width   :   33.8125rem;
+    }
+}
+.download__cards{
+    @include m.flex(column,center,center);
+    gap  :  v.$spacing-500;
+
+    @media(min-width:48rem){
+      display               : grid;
+      grid-template-columns : repeat(3, 1fr);
+      align-items           : start;
+      justify-content       : center;
+      gap                   : v.$spacing-100;
+    }
+
+    @media(min-width:64rem){
+        gap  : v.$spacing-400;
+    }
+}

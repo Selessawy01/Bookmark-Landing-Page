@@ -1,0 +1,88 @@
+@use "../abstract/variables" as v;
+@use "../abstract/mixins" as m;
+.cta{
+    background-color: v.$secondary-background ;
+}
+
+.cta__wrapper{
+    @include m.flex(column,center,center);
+    gap           : v.$spacing-400;
+    padding-block : clamp(v.$spacing-400,8vw,v.$spacing-700);
+    width         : 100%;
+    max-width     : 26.375rem;
+}
+
+.cta p,
+.cta h2 {
+    color:v.$white;
+}
+
+.uppercase{
+    @media(min-width:48rem){
+        padding-block-end : v.$spacing-300;
+    }
+}
+.cta__form{
+    @include m.flex(column,center,center);
+    gap  : v.$spacing-200;
+
+    @media(min-width:48rem){
+     @include m.flex(row,center,flex-start);
+     gap : v.$spacing-200;
+    }
+}
+
+.cta__input.active {
+    background-color : v.$color-red-400 ;
+    border-radius    : v.$border-raduis-s;
+    position         : relative;
+    padding          : 2px;
+}
+
+.cta__input-email{
+    width:100%;
+    padding       : v.$spacing-100 v.$spacing-200;
+    border-radius : v.$border-raduis-s;
+    border        : none;
+    font-size     : v.$fs-100;
+    height        : 3rem;
+}
+
+.cta__input img {
+    position    : absolute;
+    top         : 25%;
+    right       : v.$spacing-100;
+    transform   : translateY(-25%);
+    display     :  none;
+}
+.cta__input.active img {
+    display     : block;
+}
+
+.cta__form button {
+    width         : 100%;
+    padding-block : v.$spacing-100;
+    height        :3rem;
+    @include m.flex(column, center,center);
+    
+    @media(min-width:48rem){
+        width   : auto;
+        padding : v.$spacing-200 v.$spacing-300;
+    }
+}
+.cta__form button:hover{
+    color     : v.$color-red-400;
+    border    : 2px solid v.$color-red-400;
+    background: v.$white;
+}
+
+.error { 
+    display  : none;
+}
+.error.active{
+    font-style : italic;
+    font-size  : 0.625rem;
+    padding    : 2px 2px 0;
+    text-align : left;
+    display    : block;
+}

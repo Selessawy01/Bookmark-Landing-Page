@@ -1,0 +1,71 @@
+@use "../abstract/variables" as v;
+.btn {
+  display       : inline-flex;
+  border-radius : v.$border-raduis-s;
+  border        : none;
+
+  background : none;
+  cursor     : pointer;
+  
+  font-family : inherit;
+  font-size   : v.$fs-100;
+  font-weight : v.$fw-medium;
+  transition  : all 0.3s ease;
+  text-decoration : none;
+  white-space     :nowrap;
+
+
+}
+.btn--primary {
+  background-color : v.$btn-primary-bg;
+  color            : v.$btn-primary-text;
+  }
+
+.btn--primary:hover {
+  background-color  : v.$btn-hover-bg;
+  color             : v.$btn-primary-text-hover;
+  border            : 1px solid v.$btn-primary-text-hover;
+} 
+
+.btn--secondary {
+  background-color : v.$btn-secondary-bg;
+  color            : v.$btn-secondary-text;
+ }
+
+.btn--secondary:hover {
+  background-color : v.$btn-hover-bg;
+  color            : v.$btn-secondary-text-hover;
+  border           : 1px solid v.$btn-secondary-text-hover;
+}
+.btn--accent {
+  background-color : v.$btn-accent-bg;
+  color            : v.$btn-accent-text ;
+}
+.btn--accent:hover {
+  background-color : v.$btn-hover-bg;
+  color            : v.$btn-accent-text-hover;
+  border           : 1px solid v.$btn-accent-text-hover;
+}
+
+.btn:focus {
+  outline       : 1px solid v.$btn-primary-bg;
+  outline-offset: 2px;
+}
+
+.btn--small {
+  padding : v.$spacing-200 v.$spacing-400;
+}
+
+.btn--medium {
+  padding : v.$spacing-100 v.$spacing-200;
+}
+
+.btn--large {
+  padding : v.$spacing-100 v.$spacing-400; 
+
+  @media(min-width:48rem){
+    
+    padding-inline : v.$spacing-100;
+  }
+}
+

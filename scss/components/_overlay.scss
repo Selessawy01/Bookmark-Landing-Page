@@ -1,0 +1,18 @@
+@use "../abstract/variables" as v;  
+
+.overlay-active {
+  position  : fixed;
+  inset     : 0; 
+
+  background-color: rgba(v.$color-blue-950, 0.9);
+ pointer-events   : none;
+  transition      : opacity 0.3s ease;
+  z-index         : 100;
+}
+
+/* active state */
+.overlay-active {
+  opacity        : 1;
+  visibility     : visible;
+  pointer-events: auto;
+}

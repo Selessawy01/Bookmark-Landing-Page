@@ -1,0 +1,71 @@
+@use "../abstract/variables" as v;
+@use "../abstract/mixins" as m;
+
+.faqs__container{
+    @include m.flex(column,center,center);
+    gap       : v.$spacing-700;
+    max-width : 33.75rem;
+}
+.faqs__header h2 {
+    padding-block-end : v.$spacing-200;
+}
+.faqs__content {
+    width              : 100%;
+    border-top         : 1px solid v.$border-light ;
+    padding-block-start: v.$spacing-200;
+}
+
+.faqs__questions{
+   
+    @include m.flex(row,space-between,center);
+
+    width        : 100%;
+    padding-block: v.$spacing-200;
+
+    background: none;
+    border    : none;
+    cursor    : pointer;
+
+    font-size     : clamp(v.$fs-100,3vw,v.$fs-300);
+    line-height   : 165%;
+    font-weight   : v.$fw-regular;
+    color         : v.$secondary-text-color;
+    border-bottom : 2px solid v.$border-light;
+}
+
+.faqs__questions:hover {
+    color : v.$color-red-400;
+}
+
+.faqs__questions:focus-visible {
+    outline       : 2px solid v.$color-blue-600;
+    outline-offset: 4px;
+}
+
+.faqs__answer {
+    display       : none;
+    padding-block : v.$spacing-200;
+}
+
+.faqs__answer p {
+    text-align : left;
+}
+
+.faqs__item.active .faqs__answer {
+    display : block;
+}
+
+.faq__arrow{
+    width      : 1.125rem;
+    height     : 1.125rem;
+    display    : block;
+    color      : v.$color-blue-600;
+    transition : transform 0.3s ease, color 0.3s ease;
+}
+
+.faqs__item.active .faq__arrow{
+    transform : rotate(180deg);
+    color     : v.$color-red-400;
+}
+
+

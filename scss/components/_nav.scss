@@ -1,0 +1,153 @@
+@use "../abstract/variables" as v;
+@use "../abstract/mixins"  as m;
+
+
+.nav {
+  width          : 100%;
+  height         : 100vh;
+  padding-inline : clamp(v.$spacing-400,10vw,v.$spacing-1000); ;
+  padding-block  : v.$spacing-600;
+  
+  @include m.flex(column,center,center);
+  
+  /* mobile */
+  position  : fixed;
+  inset     : 0;
+  z-index   : 200;
+ 
+  transform     : translateY(-100%);
+  opacity       : 0;
+  visibility    :hidden;
+  pointer-events: none;
+
+  transition     : transform 0.3s ease, opacity 0.3s ease;
+  will-change    : transform, opacity;
+
+  @media(min-width:64rem){
+    position       : static;
+    transform      : none;
+    opacity        : 1;
+    visibility     : visible;
+    pointer-events : all;
+
+    background : none;
+    padding    : 0;
+    height     : auto;
+    width      : auto;
+    color      : v.$secondary-text-color;
+    @include m.flex(row);
+  }
+}
+/* open */
+.nav.is-open {
+  transform      : translateY(0);
+  opacity        : 1;
+  visibility     : visible;
+  pointer-events : all;
+}
+
+.nav__bar {
+  @include m.flex(row,space-between,center);
+  width             :100%; 
+  padding-block-end : v.$spacing-500;
+
+  @media(min-width:64rem){
+    display  :  none;
+  }
+}
+
+.nav__close {
+  border     : none;
+  background : none;
+  cursor     : pointer;
+}
+
+.nav__list {
+  width:100%;
+
+  @media(min-width:64rem){
+    @include m.flex(row);
+    gap  : v.$spacing-600;
+  }
+}
+
+.nav__item {
+  @include m.flex(column);
+  width         : 100%;
+  border-top    : 1px solid v.$border-dark;
+  padding-block : clamp(v.$spacing-300,5vw,v.$spacing-400);
+   @media(min-width: 64rem){
+    border      : none;
+  }
+}
+
+.nav__item:last-child {
+  border-bottom : 1px solid v.$border-dark;   
+  @media(min-width: 64rem){
+    border      : none;
+  }
+}
+
+.nav__link{
+  color:v.$white;
+  font-size       : v.$fs-400;
+  letter-spacing  : 2.3px;
+  text-transform  : uppercase;
+  text-align      : center;
+  
+  text-decoration : none;
+  font-weight     : v.$fw-regular;
+
+  @media(min-width:64rem){
+    border      : none;
+    padding     : 0;
+    font-size   : v.$fs-50;
+    line-height : 200%;
+    font-weight : v.$fw-regular;
+    color       : v.$secondary-text-color;
+
+    &:hover{
+      color     : v.$color-red-400;
+    }
+  }
+}
+
+.nav__login {
+  @include m.flex(row);
+  width              :100%;
+  color              : v.$white;
+  border             : 2px solid v.$white;
+  height             : 3rem;
+  border-radius      : v.$border-raduis-s;
+  text-transform     : uppercase;
+  text-decoration    : none;
+  font-size          : v.$fs-400;
+  letter-spacing     : 2.3px;
+  font-weight        : v.$fw-medium;
+  margin-block-start : clamp(v.$spacing-300,5vw,v.$spacing-400);
+  
+  @media(min-width: 64rem){
+    padding           : v.$spacing-100 v.$spacing-400;
+    background-color  : v.$color-red-400;
+    font-weight       : v.$fw-regular;
+    font-size         : v.$fs-50;
+   
+    margin-block-start  : 0;
+    margin-inline-start : v.$spacing-600;
+
+    &:hover{
+      border-color      : v.$color-red-400;
+      background-color  : v.$white;
+      color             : v.$color-red-400;
+    }
+  }
+}
+.nav__social{
+  @include m.flex(row,center,center);
+  gap         : v.$spacing-500;
+  margin-top  : auto;
+  @media(min-width: 64rem){
+    display   : none;
+  }
+}
+

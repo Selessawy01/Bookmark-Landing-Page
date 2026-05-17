@@ -1,0 +1,67 @@
+@use "../abstract/variables" as v;  
+@use "../abstract/mixins" as m;
+
+.hero{
+    @include m.flex(column,center,center);
+    gap : clamp(v.$spacing-600,10vw,v.$spacing-900);
+
+    @media(min-width:64rem){
+      margin-block-start    : v.$spacing-1000 ;
+      display               : grid;
+      grid-template-columns : 1fr 1fr;
+      grid-template-areas:
+            "content image"; 
+    }
+}
+.hero__image {
+    @include m.flex(row,center,center);
+    position  : relative;
+    z-index   : 1;
+    @media(min-width:64rem){
+       grid-area : image;
+    }
+}
+
+.hero__image img {
+    max-width : 100%;
+    width     : 100%;
+    height    : auto;
+    display   : block;
+}
+
+
+.hero__image::before{
+    content:"";
+    position         : absolute;
+    left             : 30%;
+    bottom           : 5%;
+    width            : 120%;
+    height           : 70%;
+    background-color : v.$color-blue-600;
+    border-radius    : 100px 0 0 100px;
+    z-index          : -1;
+ 
+}
+
+.hero__content{
+    @include m.flex(column,center,center);
+    gap : v.$spacing-300;
+    
+    @media(min-width:48rem){
+        max-width: 33.75rem;
+    }
+    
+    @media(min-width:64rem){
+        grid-area : content;
+    }
+}
+
+.hero__content p{
+    @media(min-width:64rem){
+        text-align : left;
+    }
+}
+.hero__buttons{
+    @include m.flex(row, center,center);
+    gap : v.$spacing-200;
+}

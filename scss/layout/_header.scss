@@ -1,0 +1,27 @@
+@use "../abstract/variables" as v;
+@use "../abstract/mixins" as m;
+.header{
+
+  &__bar{
+    @include m.flex(row,space-between,center);
+    width         : 100%;
+    margin-block  : v.$spacing-500;
+  }
+}
+
+.header__toggle{
+  border      : none;
+  background  : none;
+  cursor      : pointer;
+  @media(min-width: 64rem){
+    display   : none;
+  }
+}
+
+
+@media (min-width: 64rem) {
+  .header__container {
+    @include m.flex(row,space-between,center);
+  }
+}
+

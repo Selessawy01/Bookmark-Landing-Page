@@ -1,0 +1,58 @@
+@use "../abstract/variables" as v;
+@use "../abstract/mixins" as m;
+
+.footer {
+    width               :   100%;
+    background-color    :   v.$color-blue-950;
+    padding-block       :   v.$spacing-400;
+    transition          :   color 0.3s ease;
+}
+.footer__container{
+    @include m.flex(column,center,center);
+    gap                 :   v.$spacing-600;
+
+    @media(min-width:48rem){
+       @include m.flex(row,space-between,center);
+    }
+}
+.footer__list{
+    @include m.flex(column,center,center);
+    gap         :   clamp(v.$spacing-300,3vw,v.$spacing-600);
+    margin      :   0;
+    padding     :   0;
+    list-style  :   none; 
+
+    @media(min-width:48rem){
+        @include m.flex(row,center,center);
+    }
+}
+
+.footer__link {
+    text-decoration     :   none;
+    color               :   v.$white;
+    font-size           :   v.$fs-50;
+    font-weight         :   v.$fw-regular;
+    line-height         :   165%;
+    letter-spacing      :   2px;
+    text-transform      :   uppercase;
+    text-align          :   center;
+}
+.footer__social{
+    @include m.flex(row,center,center);
+    gap                :    v.$spacing-500;
+    @media(min-width:48rem){
+        margin-left    :    auto;
+    }
+}
+.social-icon {
+    color       :   v.$white;
+    height      :   1.5rem;
+    width       :   1.5rem;
+    display     :   block;
+    transition  :   color 0.3s ease;
+}
+.footer__link:hover,
+.social-icon:hover {
+    
+    color       : v.$color-red-400;
+}
