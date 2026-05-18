@@ -30,6 +30,7 @@ const menu = {
         dom.closeBtn.addEventListener('click',()=>this.closeMenu());
 
         dom.overlay.addEventListener('click',()=>{
+        if (!dom.headerNav) return;
             if (dom.headerNav.classList.contains('is-open')){
                 this.closeMenu();
             }
@@ -37,6 +38,7 @@ const menu = {
     },
 
     openMenu(){
+    if (!dom.headerBar || !dom.headerNav) return;
         dom.headerBar.style.visibility = 'hidden';
         dom.headerNav.classList.add('is-open');
         dom.headerNav.setAttribute('aria-hidden','false');
@@ -47,8 +49,9 @@ const menu = {
     },
 
     closeMenu(){
-         dom.headerBar.style.visibility = 'visible';
-       dom.headerNav.classList.remove('is-open');
+    if (!dom.headerBar || !dom.headerNav) return;
+        dom.headerBar.style.visibility = 'visible';
+        dom.headerNav.classList.remove('is-open');
         dom.headerNav.setAttribute('aria-hidden','true');
         dom.toggleBtn.setAttribute('aria-expanded','false');
         dom.bodyScroll.classList.remove('menu-open');
@@ -131,6 +134,7 @@ const faq = {
 
 const tabMenu = {
     init(){
+        if (!dom.tabButtons.length) return;
         this.bindEvents();
     },
     bindEvents(){
@@ -139,8 +143,12 @@ const tabMenu = {
         button.addEventListener("click", () => { 
             this.switchTab(button);
         });
+
+          button.addEventListener("keydown", (e) => { // ← add this
+                this.handleKeydown(e);
+        });
       });
-    },
+},
 
 
      handleKeydown(e) {
