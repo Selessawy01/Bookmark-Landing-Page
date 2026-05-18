@@ -1,7 +1,7 @@
 @use "../abstract/variables" as v;
 .btn {
   display       : inline-flex;
-  border-radius : v.$border-raduis-s;
+  border-radius : v.$border-radius-s;
   border        : none;
 
   background : none;

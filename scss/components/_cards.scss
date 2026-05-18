@@ -6,7 +6,7 @@
     @include m.flex(column,center,center);
     padding-block : v.$spacing-400;
     gap           : v.$spacing-300;
-    border-radius : v.$border-raduis-lg;
+    border-radius : v.$border-radius-lg;
     box-shadow    : 0 10px 20px rgba(0,0,0,0.08);
     @media(min-width:48rem){
 

@@ -34,7 +34,7 @@
 
 .cta__input.active {
     background-color : v.$color-red-400 ;
-    border-radius    : v.$border-raduis-s;
+    border-radius    : v.$border-radius-s;
     position         : relative;
     padding          : 2px;
 }
@@ -42,7 +42,7 @@
 .cta__input-email{
     width:100%;
     padding       : v.$spacing-100 v.$spacing-200;
-    border-radius : v.$border-raduis-s;
+    border-radius : v.$border-radius-s;
     border        : none;
     font-size     : v.$fs-100;
     height        : 3rem;

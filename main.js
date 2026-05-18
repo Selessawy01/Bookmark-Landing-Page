@@ -1,5 +1,3 @@
-console.log("JS is working");
-
 const dom = {
     bodyScroll   : document.body,
     overlay      : document.querySelector(".overlay"),
@@ -23,6 +21,7 @@ const dom = {
 
 const menu = {
     init(){
+        if (!dom.toggleBtn || !dom.closeBtn || !dom.overlay) return;
         this.bindEvents();
     },
 
@@ -61,6 +60,7 @@ const menu = {
 
 const formValidation = {
     init(){
+        if (!dom.form || !dom.emailInput) return;
         this.bindEvents();
     },
 
@@ -81,17 +81,20 @@ const formValidation = {
     showError(){
         dom.inputWrapper.classList.add("active");
         dom.errorMessage.classList.add("active");
+        dom.errorMessage.setAttribute("aria-hidden", "false"); 
         dom.errorIcon.classList.add("active");
     },
      hideError(){
         dom.inputWrapper.classList.remove("active");
         dom.errorMessage.classList.remove("active");
+        dom.errorMessage.setAttribute("aria-hidden", "true");
         dom.errorIcon.classList.remove("active");
     },
 };
 
 const faq = {
     init(){
+        if (!dom.faqQuestions.length) return; 
         this.bindEvents();
     },
     bindEvents(){

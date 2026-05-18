@@ -1,0 +1,19 @@
+@use "../abstract/variables" as v;
+
+.skip-link {
+    position  : absolute;
+    top       : -100%;
+    left      : 1rem;
+    z-index   : 9999;
+
+    background-color : v.$color-blue-600;
+    color            : v.$white;
+    padding          : v.$spacing-200 v.$spacing-300;
+    border-radius    : v.$border-radius-lg;
+    font-weight      : v.$fw-medium;
+    text-decoration  : none;
+
+    &:focus {
+        top : 1rem; // ← slides into view only when tabbed to
+    }
+}
